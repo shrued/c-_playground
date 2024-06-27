@@ -14,6 +14,7 @@
 - **Class**: A blueprint for objects.
 - **Object**: An instance of a class.
 - **Syntax**:
+
 ```
   class ClassName {
   public:
@@ -31,6 +32,7 @@
   - `private`
   - `protected`
 - **Example**:
+
 ```
   class EncapsulatedClass {
   private:
@@ -46,6 +48,7 @@
 - **Definition**: Abstraction is the concept of hiding the complex implementation details and showing only the essential features of the object.
 - **Abstract Class**: A class that cannot be instantiated.
 - **Pure Virtual Function**:
+
 ```
   class AbstractClass {
   public:
@@ -63,6 +66,7 @@
   - Hierarchical Inheritance
   - Hybrid Inheritance
 - **Syntax**:
+
 ```
   class BaseClass {
   // Base class code
@@ -74,6 +78,7 @@
 ```
 
 NOTE:
+
 - Inheritance: Allows a subclass to override methods defined in its superclass, promoting code reuse and specialization.
 - Interfaces: Define a contract where implementing classes must provide concrete implementations for all methods declared in the interface, promoting loose coupling and polymorphic behavior.
 
@@ -84,6 +89,7 @@ NOTE:
   - Compile-time Polymorphism (Function Overloading and Operator Overloading)
   - Run-time Polymorphism (Virtual Functions)
 - **Function Overloading**:
+
 ```
   class FunctionOverload {
   public:
@@ -93,6 +99,7 @@ NOTE:
 ```
 
 - **Virtual Functions**:
+
 ```
   class BaseClass {
   public:
@@ -105,9 +112,25 @@ NOTE:
   };
 ```
 
+NOTE:
+
+- **Why `delete test` is Necessary**:
+- Dynamic Memory Allocation:
+  When you use new to create an object, memory for that object is allocated on the heap (dynamic memory).
+  A* test = new B(); allocates memory for an object of type B and returns a pointer to it. The test pointer is of type A*.
+
+- Memory Management:
+  Memory allocated with new must be explicitly freed using delete to avoid memory leaks.
+  If you do not call delete, the memory allocated for the object remains allocated until the program terminates, which can lead to memory leaks, especially in long-running programs or those that frequently allocate memory dynamically.
+
+- Calling Destructors:
+  When delete is called, the destructor of the object is invoked to perform any necessary cleanup.
+  If the destructor is virtual, the correct destructor for the actual object type (in this case, B) is called, ensuring proper resource release and cleanup.
+
 ## 7. Constructors and Destructors
 
 - **Constructor**: Special member function that initializes objects.
+
 ```
   class MyClass {
   public:
@@ -116,6 +139,7 @@ NOTE:
 ```
 
 - **Destructor**: Special member function that is executed when an object goes out of scope.
+
 ```
   class MyClass {
   public:
@@ -127,6 +151,7 @@ NOTE:
 
 - **Definition**: Operator overloading allows you to redefine the way operators work for user-defined types.
 - **Example**:
+
 ```
   class Complex {
   private:
@@ -150,6 +175,7 @@ NOTE:
 ## 10. Static Members
 
 - **Static Data Members**: Shared among all objects of a class.
+
 ```
   class MyClass {
   public:
@@ -159,6 +185,7 @@ NOTE:
 ```
 
 - **Static Member Functions**: Can be called without an object.
+
 ```
   class MyClass {
   public:
@@ -169,6 +196,7 @@ NOTE:
 ## 11. Friend Functions and Classes
 
 - **Friend Function**: A function that is not a member of the class but has access to its private and protected members.
+
 ```
   class MyClass {
   private:
@@ -183,6 +211,7 @@ NOTE:
 ```
 
 - **Friend Class**: A class that has access to the private and protected members of another class.
+
 ```
   class ClassA {
   private:
@@ -202,6 +231,7 @@ NOTE:
 ## 12. Exception Handling
 
 - **Try, Catch, and Throw**:
+
 ```
   try {
   // Code that may throw an exception
@@ -215,6 +245,7 @@ NOTE:
 ## 13. Templates
 
 - **Function Templates**:
+
 ```
   template <typename T>
   T myMax(T a, T b) {
@@ -223,6 +254,7 @@ NOTE:
 ```
 
 - **Class Templates**:
+
 ```
   template <class T>
   class MyClass {
@@ -243,6 +275,7 @@ NOTE:
 ## 15. Lambda Expressions
 
 - **Syntax**:
+
 ```
   auto lambda = [](int x, int y) { return x + y; };
   int result = lambda(2, 3); // result = 5
@@ -255,6 +288,7 @@ NOTE:
   - `std::shared_ptr`
   - `std::weak_ptr`
 - **Example**:
+
 ```
   std::unique_ptr<int> ptr(new int(10));
   std::shared_ptr<int> ptr2 = std::make_shared<int>(20);
@@ -263,6 +297,7 @@ NOTE:
 ## 17. Move Semantics
 
 - **Move Constructor**:
+
 ```
   class MyClass {
   public:
@@ -273,6 +308,7 @@ NOTE:
 ```
 
 - **Move Assignment Operator**:
+
 ```
   MyClass& operator=(MyClass&& other) noexcept {
     if (this != &other) {
@@ -286,6 +322,7 @@ NOTE:
 ## 18. Concurrency
 
 - **Threads**:
+
 ```
   std::thread t1(functionName);
   t1.join();
@@ -294,6 +331,7 @@ NOTE:
 ## 19. Design Patterns
 
 - **Singleton**:
+
 ```
   class Singleton {
   private:
