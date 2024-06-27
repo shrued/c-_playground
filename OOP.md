@@ -147,6 +147,15 @@ NOTE:
   };
 ```
 
+- **Default Destructors**:
+If you do not define a destructor, the compiler provides a default destructor that performs a shallow cleanup (deallocates the object but does not handle dynamic memory or resources specifically allocated within the object).
+
+- **Non-Virtual Destructors**:
+If a base class destructor is not virtual and you delete an object through a base class pointer, only the base class destructor will be called, leading to potential resource leaks in derived classes.
+
+- **Virtual Destructors**:
+Declaring a destructor as virtual in a base class ensures that the destructor of the derived class is called when an object is deleted through a base class pointer. This ensures proper cleanup of resources.
+
 ## 8. Operator Overloading
 
 - **Definition**: Operator overloading allows you to redefine the way operators work for user-defined types.
