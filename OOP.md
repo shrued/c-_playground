@@ -73,6 +73,10 @@
   };
 ```
 
+NOTE:
+- Inheritance: Allows a subclass to override methods defined in its superclass, promoting code reuse and specialization.
+- Interfaces: Define a contract where implementing classes must provide concrete implementations for all methods declared in the interface, promoting loose coupling and polymorphic behavior.
+
 ## 6. Polymorphism
 
 - **Definition**: Polymorphism allows objects to be treated as instances of their parent class rather than their actual class.
